@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_xpacgxecm_activity" xml:lang="de" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ActivityType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityNumber"/>
+                </Key>
+                <Property Name="ActivityNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SalesOrganizationName" sap:label="Verkaufsorganisation"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="DistributionChannelName" sap:label="Vertriebsweg"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="DivisionName" sap:label="Sparte"/>
+                <Property Name="SalesOffice" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Verkaufsbüro"/>
+                <Property Name="ActivityType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ActivityTypeDescription" sap:label="FSM Aktivitätsart"/>
+                <Property Name="ActivityStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="ActivityStatusDescription" sap:label="Aktivitätsstatus"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Debitor" sap:quickinfo="Debitorennummer"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Warenempfänger"/>
+                <Property Name="Contact" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Ansprechpartner" sap:quickinfo="Nummer des Ansprechpartners"/>
+                <Property Name="PersonNumber" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Personalnummer"/>
+                <Property Name="ActivityTopic" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Aktivitätsthema"/>
+                <Property Name="Subject" Type="Edm.String" MaxLength="255" sap:label="Betreff"/>
+                <Property Name="Technician" Type="Edm.String" MaxLength="32" sap:label=""/>
+                <Property Name="Address" Type="Edm.String" MaxLength="128" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="PreviousActivityNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivität No" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="OriginActivity" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Q. Aktivität No" sap:quickinfo="E4C Quellaktivitätsnummer"/>
+                <Property Name="SourceActivity" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="U. Aktivität No" sap:quickinfo="E4C Ursprungsaktivitätsnummer"/>
+                <Property Name="ActivityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="ActivityStartTime" Type="Edm.Time" Precision="0" sap:label=""/>
+                <Property Name="ActivityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="ActivityEndTime" Type="Edm.Time" Precision="0" sap:label=""/>
+                <Property Name="Duration" Type="Edm.Int32" sap:label="Dauer in Minuten"/>
+                <Property Name="Plannedduration" Type="Edm.Int32" sap:label="Gepl. Dauer in Min." sap:quickinfo="Geplante Dauer in Minuten"/>
+                <Property Name="ActivityRemainderTime" Type="Edm.Time" Precision="0" sap:label=""/>
+                <Property Name="ActivityCheckedOut" Type="Edm.Boolean" sap:label=""/>
+                <Property Name="CompanyId" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:text="FSMCompanyName" sap:label="FSM Mandant ID"/>
+                <Property Name="ServiceRating" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="ServiceRatingVirtual" sap:label="Servicebewertung"/>
+                <Property Name="Scope" Type="Edm.String" MaxLength="255" sap:label="FSM Umfang"/>
+                <Property Name="OrderNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Auftrag" sap:quickinfo="Auftragsnummer"/>
+                <Property Name="OperationNumber" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="Suboperation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="Split" Type="Edm.Byte" sap:label="Splittnummer" sap:quickinfo="Nummer eines Splitts"/>
+                <Property Name="WBSElement" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label=""/>
+                <Property Name="NotificationNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Meldung" sap:quickinfo="Meldungsnummer"/>
+                <Property Name="SequentialTaskNumber" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Maßnahme" sap:quickinfo="Laufende Nummer der Maßnahme"/>
+                <Property Name="EquipmentNumber" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Equipment" sap:quickinfo="Equipmentnummer"/>
+                <Property Name="FunctionalLocation" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="TeamId" Type="Edm.String" MaxLength="128" sap:display-format="UpperCase" sap:label="Team Id"/>
+                <Property Name="TimeZoneId" Type="Edm.String" MaxLength="50" sap:label="Zeitzone"/>
+                <Property Name="Execstage" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="FSM Execution stage"/>
+                <Property Name="Region" Type="Edm.String" MaxLength="128" sap:label="Region Id"/>
+                <Property Name="TravelTimeTo" Type="Edm.Int32" sap:label=""/>
+                <Property Name="TravelTimeFrom" Type="Edm.Int32" sap:label=""/>
+                <Property Name="HazardType" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Gefahrenart"/>
+                <Property Name="LatestStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Spätetes Startdatum"/>
+                <Property Name="LatestStartTime" Type="Edm.Time" Precision="0" sap:label="Späteste Startzeit"/>
+                <Property Name="TechnitianWorkCenter" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Techn. Arbeitsplatz" sap:quickinfo="Arbeitsplatz des Technikers in Aktivität"/>
+                <Property Name="TechnitianArbaitPlatz" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Work center"/>
+                <Property Name="TechnitianWorkCenterPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Techn. Arbeitsplatz" sap:quickinfo="Arbeitsplatz des Technikers in Aktivität"/>
+                <Property Name="ObjectReferenceType" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Cloudobjekttyp"/>
+                <Property Name="ObjectKey" Type="Edm.String" MaxLength="128" sap:display-format="UpperCase" sap:label="Objektschlüssel"/>
+                <Property Name="ReleasedUdfSend" Type="Edm.Boolean" sap:label=""/>
+                <Property Name="UnassignUdfSend" Type="Edm.Boolean" sap:label="Unassign UDF gesch." sap:quickinfo="Unassign UDF wurde geschickt (oder nicht)"/>
+                <Property Name="PlannedDurationType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Planungsdauerart"/>
+                <Property Name="Dummy" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Einstelliges Kennzeichen" sap:heading=""/>
+                <Property Name="AddressNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adressnummer"/>
+                <Property Name="DateFrom" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="von" sap:quickinfo="Datum gültig von - im aktuellen Release nur 00010101 möglich"/>
+                <Property Name="Nation" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Adressversion" sap:quickinfo="Versionskennzeichen für internationale Adressen"/>
+                <Property Name="AddressType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Aktivitätsadr.typen" sap:quickinfo="Aktivitätsadressentypen"/>
+                <Property Name="FsmDummy" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Dummyfunktion in der Laenge 1" sap:heading=""/>
+                <Property Name="LeanObjectId" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Vorgangs-ID"/>
+                <Property Name="LeanObjectNumber" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="Positionsnummer" sap:quickinfo="Positionsnummer im Beleg"/>
+                <Property Name="ActivityDeleted" Type="Edm.Boolean" sap:label="Gel. vom ASA Event" sap:quickinfo="Aktivität gelöscht (geschlossen) vom ASA Event"/>
+                <Property Name="MarkedForDeletion" Type="Edm.Boolean" sap:label="Löschkennzeichen" sap:quickinfo="Löschen vorgemerkt"/>
+                <Property Name="CloudCreated" Type="Edm.Boolean" sap:label=""/>
+                <Property Name="ChangedBySap" Type="Edm.Boolean" sap:label="Geändert in SAP" sap:quickinfo="Aktivitätstermine wurden geändert in SAP"/>
+                <Property Name="ChangedByFsm" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="AktAktual.inFSM" sap:quickinfo="Aktivität wurde in FSM aktualisiert"/>
+                <Property Name="CreatedOnDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Angelegt am" sap:quickinfo="Datum, an dem der Satz hinzugefügt wurde"/>
+                <Property Name="CreatedOnTime" Type="Edm.Time" Precision="0" sap:label="Uhrzeit" sap:quickinfo="Erfassungszeit"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Angelegt von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt hinzugefügt hat"/>
+                <Property Name="ChangedOnDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Geändert am" sap:quickinfo="Datum der letzten Änderung"/>
+                <Property Name="ChangedOnTime" Type="Edm.Time" Precision="0" sap:label="Änderungszeit" sap:quickinfo="Zeitpunkt der letzten Änderung"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Geändert von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt geändert hat."/>
+                <Property Name="ServiceRatingVirtual" Type="Edm.String" MaxLength="80" sap:label="Bezeichnung" sap:quickinfo="Beschreibung 80" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FSMCompanyName" Type="Edm.String" MaxLength="40" sap:label="Mandantenname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ActivityStatusAdjusted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Aktivitätsstatus" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ActivityStatusDescription" Type="Edm.String" MaxLength="40" sap:label="Bezeichnung" sap:quickinfo="Beschreibung 40" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ServiceRatingText" Type="Edm.String" MaxLength="80" sap:label="Bezeichnung" sap:quickinfo="Beschreibung 80" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" MaxLength="20" sap:label="Beschreibung der Verkaufsorganisation" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannelName" Type="Edm.String" MaxLength="20" sap:label="Beschreibung des Vertriebswegs" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DivisionName" Type="Edm.String" MaxLength="20" sap:label="Beschreibung der Sparte" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ActivityTypeDescription" Type="Edm.String" MaxLength="40" sap:label="Bezeichnung" sap:quickinfo="Beschreibung 40" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternalRemarks" Type="Edm.String" MaxLength="255" sap:label="Interne Bemerkungen" sap:quickinfo="E4C: Interne Bemerkungen zum Aktivitätsobjekt" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="InternalRemarks2" Type="Edm.String" MaxLength="255" sap:label="Interne Bemerkungen" sap:quickinfo="E4C: Interne Bemerkungen zum Aktivitätsobjekt" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="toActivityRelated" Relationship="cds_xpacgxecm_activity.assoc_293813CEEA0EA13109DE9CEE51769072" FromRole="FromRole_assoc_293813CEEA0EA13109DE9CEE51769072" ToRole="ToRole_assoc_293813CEEA0EA13109DE9CEE51769072"/>
+                <NavigationProperty Name="to_SupportingPersons" Relationship="cds_xpacgxecm_activity.assoc_169819CDD3A5296E0620CA0039AA51DB" FromRole="FromRole_assoc_169819CDD3A5296E0620CA0039AA51DB" ToRole="ToRole_assoc_169819CDD3A5296E0620CA0039AA51DB"/>
+            </EntityType>
+            <EntityType Name="SupportingPersonsType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityNumber"/>
+                    <PropertyRef Name="Person"/>
+                </Key>
+                <Property Name="ActivityNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="Person" Type="Edm.String" Nullable="false" MaxLength="14" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="PersonUserId" Type="Edm.String" MaxLength="3"/>
+                <Property Name="PersonEmployee" Type="Edm.String" MaxLength="8"/>
+                <Property Name="SupportingPerson" Type="Edm.String" MaxLength="14" sap:display-format="UpperCase" sap:label="" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupportingPersonName" Type="Edm.String" MaxLength="80" sap:label="Vollständiger Name" sap:heading="" sap:quickinfo="Vollständiger Name der Person" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="to_Activity" Relationship="cds_xpacgxecm_activity.assoc_169819CDD3A5296E0620CA0039AA51DB" FromRole="ToRole_assoc_169819CDD3A5296E0620CA0039AA51DB" ToRole="FromRole_assoc_169819CDD3A5296E0620CA0039AA51DB"/>
+            </EntityType>
+            <EntityType Name="ActivityRemarksType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityNumber"/>
+                </Key>
+                <Property Name="ActivityNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="InternalRemarks" Type="Edm.String" MaxLength="255" sap:label="Interne Bemerkungen" sap:quickinfo="E4C: Interne Bemerkungen zum Aktivitätsobjekt"/>
+                <Property Name="InternalRemarks2" Type="Edm.String" MaxLength="255" sap:label="Interne Bemerkungen" sap:quickinfo="E4C: Interne Bemerkungen zum Aktivitätsobjekt"/>
+                <Property Name="CreatedOnDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Angelegt am" sap:quickinfo="Datum, an dem der Satz hinzugefügt wurde"/>
+                <Property Name="CreatedOnTime" Type="Edm.Time" Precision="0" sap:label="Uhrzeit" sap:quickinfo="Erfassungszeit"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Angelegt von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt hinzugefügt hat"/>
+                <Property Name="ChangedOnDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Geändert am" sap:quickinfo="Datum der letzten Änderung"/>
+                <Property Name="ChangedOnTime" Type="Edm.Time" Precision="0" sap:label="Änderungszeit" sap:quickinfo="Zeitpunkt der letzten Änderung"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Geändert von" sap:quickinfo="Name des Sachbearbeiters, der das Objekt geändert hat."/>
+            </EntityType>
+            <EntityType Name="ActivityRelatedType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="actnr"/>
+                    <PropertyRef Name="aufnr"/>
+                    <PropertyRef Name="vornr"/>
+                </Key>
+                <Property Name="actnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Auftrag" sap:quickinfo="Auftragsnummer"/>
+                <Property Name="vornr" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label=""/>
+                <Property Name="acti_statu" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Aktivitätsstatus"/>
+                <Property Name="pernr" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Personalnummer"/>
+                <Property Name="subject" Type="Edm.String" MaxLength="255" sap:label="Betreff"/>
+                <Property Name="technician" Type="Edm.String" MaxLength="32" sap:label=""/>
+                <Property Name="acti_start_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="acti_start_time" Type="Edm.Time" Precision="0" sap:label=""/>
+                <Property Name="acti_end_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label=""/>
+                <Property Name="acti_end_time" Type="Edm.Time" Precision="0" sap:label=""/>
+                <Property Name="source_actnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="U. Aktivität No" sap:quickinfo="E4C Ursprungsaktivitätsnummer"/>
+                <Property Name="node_id" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="parent_id" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Auftrag" sap:quickinfo="Auftragsnummer"/>
+                <NavigationProperty Name="to_Tree" Relationship="cds_xpacgxecm_activity.assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB" FromRole="FromRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB" ToRole="ToRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB"/>
+            </EntityType>
+            <EntityType Name="ActivityRelatedInfType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ActivityNumber"/>
+                    <PropertyRef Name="OrderNumber"/>
+                    <PropertyRef Name="OperationNumber"/>
+                </Key>
+                <Property Name="ActivityNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Aktivitätsnummer" sap:quickinfo="E4C Aktivitätsnummer"/>
+                <Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Auftrag" sap:quickinfo="Auftragsnummer"/>
+                <Property Name="OperationNumber" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label=""/>
+                <NavigationProperty Name="to_Tree" Relationship="cds_xpacgxecm_activity.assoc_A172AB2EB71D19210A633DE9DC1EC1CE" FromRole="FromRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE" ToRole="ToRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Währung" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Iso-Code"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Kurztext"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Dezimalen"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Interne Maßeinheit" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="ISO-Code"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Kaufmännisch"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Maßeinheitstext"/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Dezimalstellen"/>
+            </EntityType>
+            <EntityType Name="SAP__DocumentDescription" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Zeitstempel"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <NavigationProperty Name="Format" Relationship="cds_xpacgxecm_activity.to_format" FromRole="FromRole_to_format" ToRole="ToRole_to_format"/>
+                <NavigationProperty Name="TableColumns" Relationship="cds_xpacgxecm_activity.to_tablecolumns" FromRole="FromRole_to_tablecolumns" ToRole="ToRole_to_tablecolumns"/>
+                <NavigationProperty Name="CoverPage" Relationship="cds_xpacgxecm_activity.to_coverpage" FromRole="FromRole_to_coverpage" ToRole="ToRole_to_coverpage"/>
+                <NavigationProperty Name="Signature" Relationship="cds_xpacgxecm_activity.to_signature" FromRole="FromRole_to_signature" ToRole="ToRole_to_signature"/>
+                <NavigationProperty Name="PDFStandard" Relationship="cds_xpacgxecm_activity.to_pdfstandard" FromRole="FromRole_to_pdfstandard" ToRole="ToRole_to_pdfstandard"/>
+                <NavigationProperty Name="Hierarchy" Relationship="cds_xpacgxecm_activity.to_Hierarchy" FromRole="FromRole_to_Hierarchy" ToRole="ToRole_to_Hierarchy"/>
+                <NavigationProperty Name="Header" Relationship="cds_xpacgxecm_activity.to_header" FromRole="FromRole_to_header" ToRole="ToRole_to_header"/>
+                <NavigationProperty Name="Footer" Relationship="cds_xpacgxecm_activity.to_Footer" FromRole="FromRole_to_Footer" ToRole="ToRole_to_Footer"/>
+            </EntityType>
+            <EntityType Name="SAP__Format" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="FitToPage" Type="cds_xpacgxecm_activity.SAP__FitToPage" Nullable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Orientation" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaperSize" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BorderSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MarginSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontName" Type="Edm.String" Nullable="false" MaxLength="255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Padding" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__PDFStandard" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UsePDFAConformance" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoEnableAccessibility" Type="Edm.Boolean" Nullable="false" sap:label="Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__TableColumns" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                    <PropertyRef Name="Header"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Header" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorizontalAlignment" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__CoverPage" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Title"/>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__Signature" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoSign" Type="Edm.Boolean" Nullable="false" sap:label="Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__Hierarchy" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DistanceFromRootElement" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DrillStateElement" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__PDFHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Right" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Left" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Center" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__PDFFooter" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Right" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Left" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Center" Type="cds_xpacgxecm_activity.SAP__HeaderFooterField" Nullable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__ValueHelp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="VALUEHELP"/>
+                </Key>
+                <Property Name="VALUEHELP" Type="Edm.String" Nullable="false"/>
+                <Property Name="FIELD_VALUE" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESCRIPTION" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="SAP__FitToPage">
+                <Property Name="ErrorRecoveryBehavior" Type="Edm.String" Nullable="false" MaxLength="8" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsEnabled" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinimumFontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__HeaderFooterField">
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <Association Name="assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.ActivityRelatedType" Multiplicity="1" Role="FromRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB"/>
+                <End Type="cds_xpacgxecm_activity.ActivityRelatedInfType" Multiplicity="1" Role="ToRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB"/>
+            </Association>
+            <Association Name="to_format" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_format"/>
+                <End Type="cds_xpacgxecm_activity.SAP__Format" Multiplicity="1" Role="ToRole_to_format"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_tablecolumns" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_tablecolumns"/>
+                <End Type="cds_xpacgxecm_activity.SAP__TableColumns" Multiplicity="*" Role="ToRole_to_tablecolumns"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_coverpage" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_coverpage"/>
+                <End Type="cds_xpacgxecm_activity.SAP__CoverPage" Multiplicity="*" Role="ToRole_to_coverpage"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_signature" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_signature"/>
+                <End Type="cds_xpacgxecm_activity.SAP__Signature" Multiplicity="1" Role="ToRole_to_signature"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_pdfstandard" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_pdfstandard"/>
+                <End Type="cds_xpacgxecm_activity.SAP__PDFStandard" Multiplicity="1" Role="ToRole_to_pdfstandard"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_Hierarchy" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_Hierarchy"/>
+                <End Type="cds_xpacgxecm_activity.SAP__Hierarchy" Multiplicity="1" Role="ToRole_to_Hierarchy"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_Hierarchy">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_Hierarchy">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_header" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_header"/>
+                <End Type="cds_xpacgxecm_activity.SAP__PDFHeader" Multiplicity="1" Role="ToRole_to_header"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_header">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_header">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_Footer" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_Footer"/>
+                <End Type="cds_xpacgxecm_activity.SAP__PDFFooter" Multiplicity="1" Role="ToRole_to_Footer"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_Footer">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_Footer">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_A172AB2EB71D19210A633DE9DC1EC1CE" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.ActivityRelatedInfType" Multiplicity="1" Role="FromRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE"/>
+                <End Type="cds_xpacgxecm_activity.ActivityRelatedType" Multiplicity="*" Role="ToRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE"/>
+            </Association>
+            <Association Name="assoc_169819CDD3A5296E0620CA0039AA51DB" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.ActivityType" Multiplicity="1" Role="FromRole_assoc_169819CDD3A5296E0620CA0039AA51DB">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_xpacgxecm_activity.SupportingPersonsType" Multiplicity="*" Role="ToRole_assoc_169819CDD3A5296E0620CA0039AA51DB"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_169819CDD3A5296E0620CA0039AA51DB">
+                        <PropertyRef Name="ActivityNumber"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_169819CDD3A5296E0620CA0039AA51DB">
+                        <PropertyRef Name="ActivityNumber"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_293813CEEA0EA13109DE9CEE51769072" sap:content-version="1">
+                <End Type="cds_xpacgxecm_activity.ActivityType" Multiplicity="1" Role="FromRole_assoc_293813CEEA0EA13109DE9CEE51769072"/>
+                <End Type="cds_xpacgxecm_activity.ActivityRelatedInfType" Multiplicity="*" Role="ToRole_assoc_293813CEEA0EA13109DE9CEE51769072"/>
+            </Association>
+            <EntityContainer Name="cds_xpacgxecm_activity_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
+                <EntitySet Name="SAP__Currencies" EntityType="cds_xpacgxecm_activity.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_xpacgxecm_activity.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_xpacgxecm_activity.SAP__DocumentDescription" sap:content-version="1"/>
+                <EntitySet Name="SAP__FormatSet" EntityType="cds_xpacgxecm_activity.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_xpacgxecm_activity.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__TableColumnsSet" EntityType="cds_xpacgxecm_activity.SAP__TableColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__CoverPageSet" EntityType="cds_xpacgxecm_activity.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__SignatureSet" EntityType="cds_xpacgxecm_activity.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__HierarchySet" EntityType="cds_xpacgxecm_activity.SAP__Hierarchy" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFHeaderSet" EntityType="cds_xpacgxecm_activity.SAP__PDFHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFFooterSet" EntityType="cds_xpacgxecm_activity.SAP__PDFFooter" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_xpacgxecm_activity.SAP__ValueHelp" sap:content-version="1"/>
+                <EntitySet Name="Activity" EntityType="cds_xpacgxecm_activity.ActivityType" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="SupportingPersons" EntityType="cds_xpacgxecm_activity.SupportingPersonsType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ActivityRemarks" EntityType="cds_xpacgxecm_activity.ActivityRemarksType" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ActivityRelated" EntityType="cds_xpacgxecm_activity.ActivityRelatedType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ActivityRelatedInf" EntityType="cds_xpacgxecm_activity.ActivityRelatedInfType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_293813CEEA0EA13109DE9CEE51769072" Association="cds_xpacgxecm_activity.assoc_293813CEEA0EA13109DE9CEE51769072" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Activity" Role="FromRole_assoc_293813CEEA0EA13109DE9CEE51769072"/>
+                    <End EntitySet="ActivityRelatedInf" Role="ToRole_assoc_293813CEEA0EA13109DE9CEE51769072"/>
+                </AssociationSet>
+                <AssociationSet Name="to_FooterSet" Association="cds_xpacgxecm_activity.to_Footer" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_Footer"/>
+                    <End EntitySet="SAP__PDFFooterSet" Role="ToRole_to_Footer"/>
+                </AssociationSet>
+                <AssociationSet Name="to_headerSet" Association="cds_xpacgxecm_activity.to_header" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_header"/>
+                    <End EntitySet="SAP__PDFHeaderSet" Role="ToRole_to_header"/>
+                </AssociationSet>
+                <AssociationSet Name="to_formatSet" Association="cds_xpacgxecm_activity.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
+                    <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
+                </AssociationSet>
+                <AssociationSet Name="to_pdfstandardSet" Association="cds_xpacgxecm_activity.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
+                    <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB" Association="cds_xpacgxecm_activity.assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ActivityRelated" Role="FromRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB"/>
+                    <End EntitySet="ActivityRelatedInf" Role="ToRole_assoc_E4B4E1CD2C847DC17EF88A10DE8E63FB"/>
+                </AssociationSet>
+                <AssociationSet Name="to_tablecolumnsSet" Association="cds_xpacgxecm_activity.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_tablecolumns"/>
+                    <End EntitySet="SAP__TableColumnsSet" Role="ToRole_to_tablecolumns"/>
+                </AssociationSet>
+                <AssociationSet Name="to_signatureSet" Association="cds_xpacgxecm_activity.to_signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_signature"/>
+                    <End EntitySet="SAP__SignatureSet" Role="ToRole_to_signature"/>
+                </AssociationSet>
+                <AssociationSet Name="to_coverpageSet" Association="cds_xpacgxecm_activity.to_coverpage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_coverpage"/>
+                    <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_169819CDD3A5296E0620CA0039AA51DB" Association="cds_xpacgxecm_activity.assoc_169819CDD3A5296E0620CA0039AA51DB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Activity" Role="FromRole_assoc_169819CDD3A5296E0620CA0039AA51DB"/>
+                    <End EntitySet="SupportingPersons" Role="ToRole_assoc_169819CDD3A5296E0620CA0039AA51DB"/>
+                </AssociationSet>
+                <AssociationSet Name="to_HierarchySet" Association="cds_xpacgxecm_activity.to_Hierarchy" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_Hierarchy"/>
+                    <End EntitySet="SAP__HierarchySet" Role="ToRole_to_Hierarchy"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_A172AB2EB71D19210A633DE9DC1EC1CE" Association="cds_xpacgxecm_activity.assoc_A172AB2EB71D19210A633DE9DC1EC1CE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ActivityRelatedInf" Role="FromRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE"/>
+                    <End EntitySet="ActivityRelated" Role="ToRole_assoc_A172AB2EB71D19210A633DE9DC1EC1CE"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.ActivityRelatedInfType/to_Tree" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Composition"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.ActivityType/to_SupportingPersons" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Composition"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities/Activity" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ServiceRatingVirtual</PropertyPath>
+                                <PropertyPath>FSMCompanyName</PropertyPath>
+                                <PropertyPath>ActivityStatusAdjusted</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="toActivityRelated"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_SupportingPersons"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ServiceRatingVirtual</PropertyPath>
+                                <PropertyPath>FSMCompanyName</PropertyPath>
+                                <PropertyPath>ActivityStatusAdjusted</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities/SupportingPersons" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>SupportingPerson</PropertyPath>
+                                <PropertyPath>SupportingPersonName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Activity"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>SupportingPerson</PropertyPath>
+                                <PropertyPath>SupportingPersonName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities/ActivityRelated" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Tree"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities/ActivityRelatedInf" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Tree"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities/ActivityRemarks" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.cds_xpacgxecm_activity_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="./$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="SAP__MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.SAP__DocumentDescription">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__MyDocumentDescriptions"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__DocumentDescription/CreatedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__DocumentDescription/CreatedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__DocumentDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__capabilties.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/Orientation"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/PaperSize"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__Format/FitToPage/ErrorRecoveryBehavior" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="../../../../SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27ErrorRecoveryBehaviour%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__Format/FontName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27FontName%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__Format/PaperSize" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27PaperSize%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFHeader/Left" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFHeader/Right" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFHeader/Center" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFFooter/Left" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFFooter/Right" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__PDFFooter/Center" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HeaderFooter%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__Format/Orientation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27FontName%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_xpacgxecm_activity.SAP__TableColumns/HorizontalAlignment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HorizontalAlignment%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <atom:link rel="self" href="https://sapes5.proaxia-consulting.com/sap/opu/odata/PACG/ECM_UI_ACTIVITY_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://sapes5.proaxia-consulting.com/sap/opu/odata/PACG/ECM_UI_ACTIVITY_O2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

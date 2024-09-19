@@ -1,0 +1,111 @@
+<mvc:View 
+xmlns="sap.ui.table"
+xmlns:m="sap.m"
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="fsm.connector.activity.ext.controller.ActivityRelated">
+    <m:Table id="Table" items="{ActivityRelated>/}">
+        <m:columns>
+            <m:Column id="ActivityColumn">
+                <m:Text id="ActivityColumnText" text="Activity" />
+            </m:Column>
+            <m:Column id="ActivityStatusColumn">
+                <m:Text id="ActivityStatusText" text="Activity Status" />
+            </m:Column>
+            <m:Column id="PersonNumberColumn">
+                <m:Text id="PersonNumberText" text="Person Number" />
+            </m:Column>
+            <m:Column id="SubjectColumn">
+                <m:Text id="SubjectText" text="Subject" />
+            </m:Column>
+        <m:Column id="TechnicianColumn">
+                <m:Text id="TechnicianText" text="Technician" />
+            </m:Column>
+            <m:Column id="StartDateColumn">
+                <m:Text id="StartDateText" text="Start Date" />
+            </m:Column>
+            <m:Column id="EndDateColumn">
+                <m:Text id="EndDateText" text="End Date" />
+            </m:Column>
+            <m:Column id="StartTimeColumn">
+                <m:Text id="StartTimeText" text="Start Time" />
+            </m:Column>
+            <m:Column id="EndTimeColumn">
+                <m:Text id="EndTimeText" text="End Time" />
+            </m:Column>
+            <m:Column id="SourceActivityColumn">
+                <m:Text id="SourceActivityText" text="SourceActivity" />
+            </m:Column>
+        </m:columns>
+        <m:items>
+            <m:ColumnListItem id="column33">
+                <m:cells>
+                    <m:Text id="ActivityNumber" text="{ActivityRelated>actnr}" />
+                    <m:Text id="ActivityStatus" text="{ActivityRelated>acti_statu}" />
+                    <m:Text id="PersonNumber" text="{ActivityRelated>pernr}" />
+                    <m:Text id="Subject" text="{ActivityRelated>subject}" />
+                    <m:Text id="Technician" text="{ActivityRelated>technician}" />
+                    <m:Text id="ActivityStartDate" text="{ActivityRelated>acti_start_date}" />
+                    <m:Text id="ActivityStartTime" text="{ActivityRelated>acti_start_time}" />
+                    <m:Text id="ActivityEndDate" text="{ActivityRelated>acti_end_date}" />
+                    <m:Text id="ActivityEndTime" text="{ActivityRelated>acti_end_time}" />
+                    <m:Text id="SourceActivity" text="{ActivityRelated>source_actnr}" />
+                </m:cells>
+            </m:ColumnListItem>
+        </m:items>
+    </m:Table>
+
+	<!-- <m:Text id="Label" text="{acti_start_date}"  -->
+   
+	 <!-- /> -->
+	<!--
+    objectBindings="{/to_SupportingPersons}"
+    <TreeTable
+        id="treeTable"
+        selectionMode="Single"
+        enableColumnReordering="false"
+        rows="{
+		path : '/toActivityRelated/',
+             parameters : {
+                countMode: 'Inline',
+                treeAnnotationProperties : {
+                    hierarchyLevelFor : '{hierarchyLevel}',
+                    hierarchyNodeFor : '{node_id}',
+                    hierarchyParentNodeFor : '{parent_id}',
+                    hierarchyDrillStateFor : 'DrillState'
+                }
+            } 
+        }"> -->
+
+        <!-- <columns> -->
+
+            <!-- <Column id="ColumnDesription">
+                <m:Label id="Label1" text="Description"/>
+                <template>
+                    <m:Text id="Text1" text="{Description}" wrapping="false" />
+                </template>
+            </Column> -->
+
+            <!-- <Column id="Column2">
+                <m:Label id="Label2" text="HierarchyLevel"/>
+                <template>
+                    <m:Text id="Text2" text="{HierarchyLevel}" wrapping="false" />
+                </template>
+            </Column> -->
+
+            <!-- <Column id="Column3">
+                <m:Label id="Label3" text="NodeID"/>
+                <template>
+                    <m:Text id="Label5" text="{node_id}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column id="Column4">
+                <m:Label id="Label4" text="ParentNodeID"/>
+                <template>
+                    <m:Text id="Label6" text="{parent_id}" wrapping="false" />
+                </template>
+            </Column>
+        </columns>
+    </TreeTable> -->
+	
+</mvc:View>
